@@ -1,12 +1,12 @@
-import React from "react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@shared/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@shared/components/ui/carousel";
+} from "@/components/ui/carousel";
+import React from "react";
 import Img from "./Img";
 
 /**

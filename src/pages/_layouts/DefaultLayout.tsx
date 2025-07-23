@@ -17,6 +17,9 @@ export default function DefaultLayout() {
           <li>
             <Button asChild variant="ghost"><Link to="/components">Components</Link></Button>
           </li>
+          <li>
+            <Button asChild variant="ghost"><Link to="/carousel-custom">Carousel Custom</Link></Button>
+          </li>
         </ul>
       </nav>
       <main className='flex-1 border rounded-lg m-2 p-4'>

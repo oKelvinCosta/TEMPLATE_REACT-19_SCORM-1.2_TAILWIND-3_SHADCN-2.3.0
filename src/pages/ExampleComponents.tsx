@@ -1,9 +1,81 @@
+import AccordionContained from "@/components/AccordionContained";
+import CarouselCard from "@/components/CarouselCard";
+import { ClickReveal, ClickRevealContent, ClickRevealHidden, ClickRevealTrigger } from "@/components/ClickReveal";
+import Divisor from "@/components/Divisor";
 import Img from "@/components/Img";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import QuestionRadio from "@/components/QuestionRadio";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, HorizontalCard } from "@/components/ui/card";
+import { Terminal } from "lucide-react";
+import React from "react";
+
 
 export default function ExampleComponents() {
+  const [answers, setAnswers] = React.useState<Record<string, string>>({})
+
+const handleAnswerChange = (questionId: string, value: string) => {
+  setAnswers(prev => ({
+    ...prev,
+    [questionId]: value
+  }))
+}
+  const itemsCarouselCard = [
+    {
+      imgSrc: "./imgs/core/placeholder.png",
+      title: "Title",
+      content: () => <p>Slide 1 - Mussum Ipsum, cacilds vidis litro abertis. Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Sapien in monti palavris qui num significa nadis i pareci latim. A ordem dos tratores não altera o pão duris. Aenean aliquam molestie leo, vitae iaculis nisl.</p>
+    },
+    {
+      imgSrc: "./imgs/core/placeholder.png",
+      title: "Title",
+      content: () => <p>Slide 2 - Mussum Ipsum, cacilds vidis litro abertis. Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Sapien in monti palavris qui num significa nadis i pareci latim. A ordem dos tratores não altera o pão duris. Aenean aliquam molestie leo, vitae iaculis nisl.</p>
+    },
+    {
+      imgSrc: "./imgs/core/placeholder.png",
+      title: "Title",
+      content: () => <p>Slide 3 - Mussum Ipsum, cacilds vidis litro abertis. Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Sapien in monti palavris qui num significa nadis i pareci latim. A ordem dos tratores não altera o pão duris. Aenean aliquam molestie leo, vitae iaculis nisl.</p>
+    }
+  ]
+
+const Q = [
+  {
+    enunciation:"Qual é a capital do Brasil?",
+    options:[
+        { text:"Brasília", value:"br"},
+        { text:"São Paulo", value:"sp"},
+        { text:"Rio de Janeiro", value:"rj"},
+        { text:"Belo Horizonte", value:"bh"},
+    ],
+    correctAnswer:"br"
+},
+{
+  enunciation:"Qual é a capital do Brasil?",
+  options:[
+      { text:"Brasília", value:"br"},
+      { text:"São Paulo", value:"sp"},
+      { text:"Rio de Janeiro", value:"rj"},
+      { text:"Belo Horizonte", value:"bh"},
+  ],
+  correctAnswer:"br"
+}
+];
+
+const AccordionItems = [
+  {
+    title: "Is it accessible?",
+    content: ()=> <p>Yes. It adheres to the WAI-ARIA design pattern.</p>
+  },
+  {
+    title: "Is it styled?",
+    content: ()=> <p>Yes. It comes with default styles that matches the other components' aesthetic.</p>
+  },
+  {
+    title: "Is it animated?",
+    content: ()=> <p>Yes. It's animated by default, but you can disable it if you prefer.</p>
+  },
+];
+
   return (
     <div>
         <h4>ExampleComponents.tsx</h4>
@@ -48,9 +120,12 @@ export default function ExampleComponents() {
         </div>
 
         {/* Card */}
-        <div className="border-b p-4 gap-4 flex">
+        <div className="border-b p-4 gap-4 flex ">
+        
           <h4>Card</h4>
-          <Card className="max-w-[300px]">
+          
+            <div className="flex flex-col gap-4">
+            <Card className="max-w-[300px]">
             <CardHeader>
               <CardTitle>Card Title</CardTitle>
               <Img src={`./imgs/core/placeholder.png`} className={``} />
@@ -62,51 +137,126 @@ export default function ExampleComponents() {
               <p>Card Footer</p>
             </CardFooter>
           </Card>
+        
+
+          <HorizontalCard>
+            <Img src={`./imgs/core/placeholder.png`} className={`max-w-[300px] max-h-[300px]`} />
+            <div className="flex flex-col gap-2">
+              <CardHeader>
+                <CardTitle>Card Title</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>Card Content - Mussum Ipsum, cacilds vidis litro abertis. Praesent malesuada urna nisi, quis volutpat erat hendrerit non.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <p>Card Footer</p>
+              </CardFooter>
+            </div>
+          </HorizontalCard>
+
+            </div>
+        
+          
+     
         </div>
 
         {/* Accordion */}
         <div className="border-b p-4 gap-4 flex">
           <h4>Accordion</h4>
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>Accordion Trigger</AccordionTrigger>
-              <AccordionContent>Accordion Content</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger>Accordion Trigger</AccordionTrigger>
-              <AccordionContent>Accordion Content</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger>Accordion Trigger</AccordionTrigger>
-              <AccordionContent>Accordion Content</AccordionContent>
-            </AccordionItem>              
-          </Accordion>
+          <AccordionContained items={AccordionItems}/>
         </div>
 
         {/* Carousel */}
         <div className="border-b p-4 gap-4 flex">
           <h4>Carousel</h4>
-         
+          <div>
+            <CarouselCard items={itemsCarouselCard} />
+            <CarouselCard items={itemsCarouselCard} layout="1:1" />
+            <CarouselCard items={itemsCarouselCard} layout="2:1" />
+            <CarouselCard items={itemsCarouselCard} />
+          </div>
         </div>
 
         {/* Alert */}
         <div className="border-b p-4 gap-4 flex">
           <h4>Alert</h4>
-         
+          <Alert variant="default">
+            <Terminal />
+            <AlertTitle>Heads up!</AlertTitle>
+            <AlertDescription>
+              You can add components and dependencies to your app using the cli.
+            </AlertDescription>
+          </Alert>
+          <Alert variant="destructive">
+            <Terminal />
+            <AlertTitle>Heads up!</AlertTitle>
+            <AlertDescription>
+              You can add components and dependencies to your app using the cli.
+            </AlertDescription>
+          </Alert>
+          
         </div>
 
 
         {/* Divisors */}
         <div className="border-b p-4 gap-4 flex">
           <h4>Divisors</h4>
+          <div>
+          <Divisor place="top" marginDistance="60px" src="./imgs/divisor_1.webp" />
+            <div className="bg-[#3d4d57] p-4">
+              <p className="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dignissimos suscipit nam excepturi officia esse modi earum inventore laborum quidem, incidunt reprehenderit harum illo tempore nulla assumenda facere nihil dolores?</p>
+            </div>
+           
+            <div className="bg-blue-500 ">
+               <Divisor place="top" marginDistance="40px" src="./imgs/divisor_1.webp" />
+              <div className="p-4">
+              <p className="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dignissimos suscipit nam excepturi officia esse modi earum inventore laborum quidem, incidunt reprehenderit harum illo tempore nulla assumenda facere nihil dolores?</p>
+              </div>
+            </div>
+          </div>
          
         </div>
 
         {/* Questions */}
         <div className="border-b p-4 gap-4 flex">
+     
           <h4>Questions</h4>
-         
+          {
+            Q.map((question, index) => (
+              <QuestionRadio
+                key={index}
+                enunciation={question.enunciation}
+                options={question.options}
+                correctAnswer={question.correctAnswer}
+              />
+            ))
+          }
+     
+     
         </div>
+
+        {/* Click Reveal */}
+        <div className="border-b p-4 gap-4 flex">
+     
+          <h4>Click Reveal</h4>
+          
+          <ClickReveal>
+            <ClickRevealContent>
+              <h4>Click Reveal</h4>
+              <p>Este é meu conteúdo de teste para te provar, será que esse conteúdo se revelará?</p>
+              <Img src={`./imgs/core/placeholder.png`}  className="w-[80px] h-[80px]" isCircle/>
+            </ClickRevealContent>
+            <ClickRevealTrigger>Reveal</ClickRevealTrigger>
+            <ClickRevealHidden isRevealed={false}>
+              <p>Este é meu conteúdo de teste para te provar, será que esse conteúdo se revelará?</p>
+            </ClickRevealHidden>
+          </ClickReveal>
+     
+     
+        </div>
+
+  
     </div>
   )
 }

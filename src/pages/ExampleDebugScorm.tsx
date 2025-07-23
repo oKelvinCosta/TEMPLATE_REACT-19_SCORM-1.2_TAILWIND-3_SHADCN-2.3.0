@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { LESSON_STATUS, useScorm } from "@/contexts/ScormContext";
 
-export default function DebugScorm() {
+export default function ExampleDebugScorm() {
   
   const { scormSet} = useScorm();
 
@@ -13,7 +13,7 @@ export default function DebugScorm() {
 
   return (
     <div className="w-full ">
-      <h4>DebugScorm.tsx</h4>
+      <h4>ExampleDebugScorm.tsx</h4>
 
       <Button onClick={handleConcludeScorm} variant="destructive">DEBUGAR</Button>
     

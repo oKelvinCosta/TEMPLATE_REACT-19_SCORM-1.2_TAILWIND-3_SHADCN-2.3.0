@@ -1,9 +1,9 @@
 import { createHashRouter } from "react-router-dom";
 import DefaultLayout from "./pages/_layouts/DefaultLayout";
-import DebugScorm from "./pages/DebugScorm";
+import ExampleCarouselCustom from "./pages/ExampleCarouselCustom";
 import ExampleComponents from "./pages/ExampleComponents";
+import ExampleDebugScorm from "./pages/ExampleDebugScorm";
 import ExampleHome from "./pages/ExampleHome";
-
 
 
 export const router = createHashRouter([
@@ -17,11 +17,15 @@ export const router = createHashRouter([
       },
       {
         path: "/debug-scorm",
-        element: <DebugScorm/>,
+        element: <ExampleDebugScorm/>,
       },
       {
         path: "/components",
         element: <ExampleComponents/>,
+      },
+      {
+        path: "/carousel-custom",
+        element: <ExampleCarouselCustom/>,
       },
     ],
     

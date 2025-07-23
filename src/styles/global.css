@@ -19,6 +19,8 @@
     --accent-foreground: 24 9.8% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 60 9.1% 97.8%;
+    --success: 141.9 69.2% 58%;
+    --success-foreground: 143.8 61.2% 20.2%;
     --border: 20 5.9% 90%;
     --input: 20 5.9% 90%;
     --ring: 20 14.3% 4.1%;
@@ -143,7 +145,7 @@ p {
   margin: 1.2rem auto;
   font-family: var(--text-font-family);
   line-height: 144% !important;
-  @apply text-lg;
+  @apply text-base;
 }
 p:first-of-type {
   margin-top: 0;
