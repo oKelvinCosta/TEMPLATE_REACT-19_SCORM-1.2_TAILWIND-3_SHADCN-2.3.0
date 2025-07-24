@@ -4,6 +4,7 @@ import ExampleCarouselCustom from "./pages/ExampleCarouselCustom";
 import ExampleComponents from "./pages/ExampleComponents";
 import ExampleDebugScorm from "./pages/ExampleDebugScorm";
 import ExampleHome from "./pages/ExampleHome";
+import BuilderEditor from "./pages/BuilderEditor";
 
 
 export const router = createHashRouter([
