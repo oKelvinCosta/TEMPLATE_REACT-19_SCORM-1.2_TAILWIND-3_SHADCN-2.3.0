@@ -28,6 +28,10 @@ export const router = createHashRouter([
         path: "/carousel-custom",
         element: <ExampleCarouselCustom/>,
       },
+      {
+        path: "/builder-editor",
+        element: <BuilderEditor/>,
+      },
     ],
     
   },
