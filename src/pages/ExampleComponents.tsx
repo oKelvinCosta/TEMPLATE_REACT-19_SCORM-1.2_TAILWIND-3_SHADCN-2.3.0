@@ -7,19 +7,11 @@ import QuestionRadio from "@/components/QuestionRadio";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, HorizontalCard } from "@/components/ui/card";
+import { Builder } from '@builder.io/react';
 import { Terminal } from "lucide-react";
-import React from "react";
-
 
 export default function ExampleComponents() {
-  const [answers, setAnswers] = React.useState<Record<string, string>>({})
 
-const handleAnswerChange = (questionId: string, value: string) => {
-  setAnswers(prev => ({
-    ...prev,
-    [questionId]: value
-  }))
-}
   const itemsCarouselCard = [
     {
       imgSrc: "./imgs/core/placeholder.png",
@@ -64,17 +56,45 @@ const Q = [
 const AccordionItems = [
   {
     title: "Is it accessible?",
-    content: ()=> <p>Yes. It adheres to the WAI-ARIA design pattern.</p>
+    content: "<p>Yes. It adheres to the WAI-ARIA design pattern.</p>"
   },
   {
     title: "Is it styled?",
-    content: ()=> <p>Yes. It comes with default styles that matches the other components' aesthetic.</p>
+    content: "<p>Yes. It comes with default styles that matches the other components' aesthetic.</p>"
   },
   {
     title: "Is it animated?",
-    content: ()=> <p>Yes. It's animated by default, but you can disable it if you prefer.</p>
+    content: "<p>Yes. It's animated by default, but you can disable it if you prefer.</p>"
   },
 ];
+
+Builder.registerComponent(AccordionContained, {
+  name: 'AccordionContained',
+  inputs: [
+    {
+      name: 'items',
+      type: 'list',
+      subFields: [
+        { name: 'title', type: 'string' },
+        { name: 'content', type: 'richText' },
+      ],
+      defaultValue: [
+        {
+          title: 'O que é Builder.io?',
+          content: '<p>É uma plataforma para criar páginas visualmente com integração ao seu código.</p>',
+        },
+        {
+          title: 'Como integro com React?',
+          content: '<p>Use <code>Builder.registerComponent</code> para tornar seus componentes editáveis.</p>',
+        },
+        {
+          title: 'Posso adicionar mais itens?',
+          content: '<p>Sim, diretamente no editor visual ao adicionar novos itens à lista.</p>',
+        },
+      ],
+    },
+  ],
+});
 
   return (
     <div>
