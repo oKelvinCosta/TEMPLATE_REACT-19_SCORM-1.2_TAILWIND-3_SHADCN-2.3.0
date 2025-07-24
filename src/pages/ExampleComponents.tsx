@@ -30,6 +30,50 @@ export default function ExampleComponents() {
     }
   ]
 
+  // Customizable carousel data - Easy to modify images and text
+  const customCarouselData = [
+    {
+      imgSrc: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&h=300&fit=crop",
+      title: "Technology Innovation",
+      content: () => (
+        <div>
+          <h5 className="text-xl font-semibold mb-2">Advanced Solutions</h5>
+          <p>Discover cutting-edge technology that transforms the way we work and live. Innovation at its finest.</p>
+        </div>
+      )
+    },
+    {
+      imgSrc: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&h=300&fit=crop",
+      title: "Team Collaboration",
+      content: () => (
+        <div>
+          <h5 className="text-xl font-semibold mb-2">Working Together</h5>
+          <p>Effective teamwork drives success. Learn how collaboration can boost productivity and creativity.</p>
+        </div>
+      )
+    },
+    {
+      imgSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
+      title: "Data Analytics",
+      content: () => (
+        <div>
+          <h5 className="text-xl font-semibold mb-2">Smart Insights</h5>
+          <p>Transform raw data into actionable insights. Make informed decisions with powerful analytics tools.</p>
+        </div>
+      )
+    },
+    {
+      imgSrc: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=300&fit=crop",
+      title: "Future Growth",
+      content: () => (
+        <div>
+          <h5 className="text-xl font-semibold mb-2">Scaling Success</h5>
+          <p>Plan for tomorrow with strategic growth initiatives. Build sustainable foundations for long-term success.</p>
+        </div>
+      )
+    }
+  ]
+
 const Q = [
   {
     enunciation:"Qual é a capital do Brasil?",
@@ -60,7 +104,7 @@ const AccordionItems = [
   },
   {
     title: "Is it styled?",
-    content: "<p>Yes. It comes with default styles that matches the other components' aesthetic.</p>"
+    content: `<p>Kelvin esteve aqui</p><img loading="lazy" srcSet="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=100 100w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=200 200w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=400 400w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=800 800w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=1200 1200w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=1600 1600w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=2000 2000w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a" style="aspect-ratio: 1.42; object-fit: cover; object-position: center; width: 200px; margin-top: 20px; min-height: 20px; min-width: 20px; overflow: hidden;" />`
   },
   {
     title: "Is it animated?",
@@ -68,33 +112,7 @@ const AccordionItems = [
   },
 ];
 
-Builder.registerComponent(AccordionContained, {
-  name: 'AccordionContained',
-  inputs: [
-    {
-      name: 'items',
-      type: 'list',
-      subFields: [
-        { name: 'title', type: 'string' },
-        { name: 'content', type: 'richText' },
-      ],
-      defaultValue: [
-        {
-          title: 'O que é Builder.io?',
-          content: '<p>É uma plataforma para criar páginas visualmente com integração ao seu código.</p>',
-        },
-        {
-          title: 'Como integro com React?',
-          content: '<p>Use <code>Builder.registerComponent</code> para tornar seus componentes editáveis.</p>',
-        },
-        {
-          title: 'Posso adicionar mais itens?',
-          content: '<p>Sim, diretamente no editor visual ao adicionar novos itens à lista.</p>',
-        },
-      ],
-    },
-  ],
-});
+// Accordion registration moved to builder-registry.tsx
 
   return (
     <div>
@@ -195,6 +213,34 @@ Builder.registerComponent(AccordionContained, {
             <CarouselCard items={itemsCarouselCard} layout="1:1" />
             <CarouselCard items={itemsCarouselCard} layout="2:1" />
             <CarouselCard items={itemsCarouselCard} />
+          </div>
+        </div>
+
+        {/* Custom Carousel with Editable Content */}
+        <div className="border-b p-4 gap-4 flex flex-col">
+          <h4>Custom Carousel - Editable Content</h4>
+          <div className="space-y-4">
+            <div>
+              <h6 className="text-sm text-muted-foreground mb-2">Layout 1:2 (Image:Content)</h6>
+              <CarouselCard items={customCarouselData} layout="1:2" />
+            </div>
+            <div>
+              <h6 className="text-sm text-muted-foreground mb-2">Layout 2:1 (Content:Image)</h6>
+              <CarouselCard items={customCarouselData} layout="2:1" />
+            </div>
+            <div>
+              <h6 className="text-sm text-muted-foreground mb-2">Layout 1:1 (Equal Split)</h6>
+              <CarouselCard items={customCarouselData} layout="1:1" />
+            </div>
+          </div>
+          <div className="mt-4 p-4 bg-muted rounded-lg">
+            <h6 className="font-semibold mb-2">How to customize:</h6>
+            <ul className="text-sm space-y-1 text-muted-foreground">
+              <li>• Change <code>imgSrc</code> to update images</li>
+              <li>• Modify <code>title</code> for slide titles</li>
+              <li>• Edit <code>content()</code> function to change text and layout</li>
+              <li>• Use different <code>layout</code> props: "1:1", "1:2", "2:1"</li>
+            </ul>
           </div>
         </div>
 
