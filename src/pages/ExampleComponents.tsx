@@ -112,33 +112,7 @@ const AccordionItems = [
   },
 ];
 
-Builder.registerComponent(AccordionContained, {
-  name: 'AccordionContained',
-  inputs: [
-    {
-      name: 'items',
-      type: 'list',
-      subFields: [
-        { name: 'title', type: 'string' },
-        { name: 'content', type: 'richText' },
-      ],
-      defaultValue: [
-        {
-          title: 'O que é Builder.io?',
-          content: '<p>É uma plataforma para criar páginas visualmente com integração ao seu código.</p>',
-        },
-        {
-          title: 'Como integro com React?',
-          content: '<p>Use <code>Builder.registerComponent</code> para tornar seus componentes editáveis.</p>',
-        },
-        {
-          title: 'Posso adicionar mais itens?',
-          content: '<p>Sim, diretamente no editor visual ao adicionar novos itens à lista.</p>',
-        },
-      ],
-    },
-  ],
-});
+// Accordion registration moved to builder-registry.tsx
 
   return (
     <div>
