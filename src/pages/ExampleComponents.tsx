@@ -242,6 +242,34 @@ Builder.registerComponent(AccordionContained, {
           </div>
         </div>
 
+        {/* Custom Carousel with Editable Content */}
+        <div className="border-b p-4 gap-4 flex flex-col">
+          <h4>Custom Carousel - Editable Content</h4>
+          <div className="space-y-4">
+            <div>
+              <h6 className="text-sm text-muted-foreground mb-2">Layout 1:2 (Image:Content)</h6>
+              <CarouselCard items={customCarouselData} layout="1:2" />
+            </div>
+            <div>
+              <h6 className="text-sm text-muted-foreground mb-2">Layout 2:1 (Content:Image)</h6>
+              <CarouselCard items={customCarouselData} layout="2:1" />
+            </div>
+            <div>
+              <h6 className="text-sm text-muted-foreground mb-2">Layout 1:1 (Equal Split)</h6>
+              <CarouselCard items={customCarouselData} layout="1:1" />
+            </div>
+          </div>
+          <div className="mt-4 p-4 bg-muted rounded-lg">
+            <h6 className="font-semibold mb-2">How to customize:</h6>
+            <ul className="text-sm space-y-1 text-muted-foreground">
+              <li>• Change <code>imgSrc</code> to update images</li>
+              <li>• Modify <code>title</code> for slide titles</li>
+              <li>• Edit <code>content()</code> function to change text and layout</li>
+              <li>• Use different <code>layout</code> props: "1:1", "1:2", "2:1"</li>
+            </ul>
+          </div>
+        </div>
+
         {/* Alert */}
         <div className="border-b p-4 gap-4 flex">
           <h4>Alert</h4>
