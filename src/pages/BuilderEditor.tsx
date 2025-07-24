@@ -118,14 +118,15 @@ export default function BuilderEditor() {
               </ul>
             </div>
             <div className="bg-white p-4 rounded border">
-              <h4 className="font-semibold text-green-600">AccordionContained</h4>
+              <h4 className="font-semibold text-green-600">VisualAccordion</h4>
               <p className="text-sm text-gray-600 mt-1">
                 Interactive accordion with customizable items and rich content
               </p>
               <ul className="text-xs text-gray-500 mt-2 space-y-1">
-                <li>• Add/remove accordion items</li>
+                <li>• Add/remove accordion items visually</li>
                 <li>• Rich text content editing</li>
                 <li>• Custom titles and content</li>
+                <li>• Drag & drop reordering</li>
               </ul>
             </div>
           </div>
