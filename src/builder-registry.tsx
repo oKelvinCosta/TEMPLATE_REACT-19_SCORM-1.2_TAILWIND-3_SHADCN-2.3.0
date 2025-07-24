@@ -140,3 +140,40 @@ Builder.registerComponent(BuilderCarousel, {
     },
   ],
 });
+
+// Register AccordionContained component with Builder.io
+Builder.registerComponent(AccordionContained, {
+  name: 'VisualAccordion',
+  inputs: [
+    {
+      name: 'items',
+      type: 'list',
+      subFields: [
+        {
+          name: 'title',
+          type: 'string',
+          defaultValue: 'Accordion Title',
+        },
+        {
+          name: 'content',
+          type: 'richText',
+          defaultValue: '<p>Add your accordion content here with rich formatting.</p>',
+        },
+      ],
+      defaultValue: [
+        {
+          title: 'O que é Builder.io?',
+          content: '<p>É uma plataforma para criar páginas visualmente com integração ao seu código.</p>',
+        },
+        {
+          title: 'Como integro com React?',
+          content: '<p>Use <code>Builder.registerComponent</code> para tornar seus componentes editáveis.</p>',
+        },
+        {
+          title: 'Posso adicionar mais itens?',
+          content: '<p>Sim, diretamente no editor visual ao adicionar novos itens à lista.</p>',
+        },
+      ],
+    },
+  ],
+});
