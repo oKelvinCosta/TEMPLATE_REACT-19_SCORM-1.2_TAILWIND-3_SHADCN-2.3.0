@@ -11,7 +11,7 @@ import { RandomId } from "@/lib/RandomId";
 interface AccordionProps {
   items: { 
     title: string;
-    content: string 
+    content: () => React.ReactNode 
     }[];
 }
 
@@ -33,7 +33,7 @@ export default function AccordionContained(
           className="rounded-md bg-card text-card-foreground mt-2 :first:mt-0 shadow-none border w-full [&_h3]:mb-0"
         >
           <AccordionTrigger className="px-4 text-lg">{item.title}</AccordionTrigger>
-          <AccordionContent className="px-4">{item.content}</AccordionContent>
+          <AccordionContent className="px-4">{item.content()}</AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

@@ -7,7 +7,6 @@ import QuestionRadio from "@/components/QuestionRadio";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, HorizontalCard } from "@/components/ui/card";
-import { Builder } from '@builder.io/react';
 import { Terminal } from "lucide-react";
 
 export default function ExampleComponents() {
@@ -100,15 +99,15 @@ const Q = [
 const AccordionItems = [
   {
     title: "Is it accessible?",
-    content: "<p>Yes. It adheres to the WAI-ARIA design pattern.</p>"
+    content: () => <p>Yes. It adheres to the WAI-ARIA design pattern.</p>
   },
   {
     title: "Is it styled?",
-    content: `<p>Kelvin esteve aqui</p><img loading="lazy" srcSet="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=100 100w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=200 200w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=400 400w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=800 800w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=1200 1200w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=1600 1600w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a?width=2000 2000w, https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a" style="aspect-ratio: 1.42; object-fit: cover; object-position: center; width: 200px; margin-top: 20px; min-height: 20px; min-width: 20px; overflow: hidden;" />`
+    content: () => <p>Kelvin esteve aqui</p>
   },
   {
     title: "Is it animated?",
-    content: "<p>Yes. It's animated by default, but you can disable it if you prefer.</p>"
+    content: () => <p>Yes. It's animated by default, but you can disable it if you prefer.</p>
   },
 ];
 
