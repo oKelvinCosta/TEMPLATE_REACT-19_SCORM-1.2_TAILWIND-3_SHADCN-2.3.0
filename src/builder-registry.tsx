@@ -1,5 +1,6 @@
 import { Builder } from '@builder.io/react';
 import CarouselCard from './components/CarouselCard';
+import AccordionContained from './components/AccordionContained';
 
 // Register CarouselCard component with Builder.io
 Builder.registerComponent(CarouselCard, {
