@@ -30,6 +30,50 @@ export default function ExampleComponents() {
     }
   ]
 
+  // Customizable carousel data - Easy to modify images and text
+  const customCarouselData = [
+    {
+      imgSrc: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&h=300&fit=crop",
+      title: "Technology Innovation",
+      content: () => (
+        <div>
+          <h5 className="text-xl font-semibold mb-2">Advanced Solutions</h5>
+          <p>Discover cutting-edge technology that transforms the way we work and live. Innovation at its finest.</p>
+        </div>
+      )
+    },
+    {
+      imgSrc: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&h=300&fit=crop",
+      title: "Team Collaboration",
+      content: () => (
+        <div>
+          <h5 className="text-xl font-semibold mb-2">Working Together</h5>
+          <p>Effective teamwork drives success. Learn how collaboration can boost productivity and creativity.</p>
+        </div>
+      )
+    },
+    {
+      imgSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
+      title: "Data Analytics",
+      content: () => (
+        <div>
+          <h5 className="text-xl font-semibold mb-2">Smart Insights</h5>
+          <p>Transform raw data into actionable insights. Make informed decisions with powerful analytics tools.</p>
+        </div>
+      )
+    },
+    {
+      imgSrc: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=300&fit=crop",
+      title: "Future Growth",
+      content: () => (
+        <div>
+          <h5 className="text-xl font-semibold mb-2">Scaling Success</h5>
+          <p>Plan for tomorrow with strategic growth initiatives. Build sustainable foundations for long-term success.</p>
+        </div>
+      )
+    }
+  ]
+
 const Q = [
   {
     enunciation:"Qual é a capital do Brasil?",
