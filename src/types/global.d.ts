@@ -1,4 +1,4 @@
-import { SCORMAPI, PipwerksDebug } from './pipwerks-scorm-api-wrapper';
+import { PipwerksDebug, SCORMAPI } from './pipwerks-scorm-api-wrapper';
 
 declare global {
   interface Window {

@@ -32,7 +32,7 @@ declare module 'pipwerks-scorm-api-wrapper' {
       StringToBoolean: (str: string) => boolean;
       trace: (msg: string) => void;
     };
-    
+
     // Shortcuts from data
     init: () => boolean;
     get: (parameter: string) => string;
@@ -42,13 +42,13 @@ declare module 'pipwerks-scorm-api-wrapper' {
   }
 
   export const SCORM: SCORMAPI;
-  
+
   // Debug global do pipwerks (not confunds with SCORM.debug)
   interface PipwerksDebug {
     isActive: boolean;
     log: (...args: any[]) => void;
   }
-  
+
   const pipwerks: {
     SCORM: SCORMAPI;
     debug: PipwerksDebug;
@@ -56,4 +56,3 @@ declare module 'pipwerks-scorm-api-wrapper' {
 
   export default pipwerks;
 }
-

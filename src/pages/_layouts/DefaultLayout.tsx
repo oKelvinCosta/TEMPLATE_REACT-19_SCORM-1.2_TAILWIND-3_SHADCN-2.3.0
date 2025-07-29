@@ -1,37 +1,40 @@
-import { Button } from '@/components/ui/button'
-import { Link, Outlet } from 'react-router-dom'
+import { Button } from '@/components/ui/button';
+import { Link, Outlet } from 'react-router-dom';
 
 export default function DefaultLayout() {
   return (
-    <div className="min-h-screen flex flex-col">
-    <div className="flex-1 flex flex-col container">
-      <nav className='border rounded-lg m-2 h-[100px] flex items-start flex-col p-4'>
-        <div>Nav</div>
-        <ul className='flex gap-2'>
-          <li>
-            <Button asChild variant="ghost"><Link to="/">Example Home</Link></Button>
-          </li>
-          <li>
-            <Button asChild variant="ghost"><Link to="/debug-scorm">Debug SCORM</Link></Button>
-          </li>
-          <li>
-            <Button asChild variant="ghost"><Link to="/components">Components</Link></Button>
-          </li>
-          <li>
-            <Button asChild variant="ghost"><Link to="/carousel-custom">Carousel Custom</Link></Button>
-          </li>
-        </ul>
-      </nav>
-      <main className='flex-1 border rounded-lg m-2 p-4'>
-        Main
-        <Outlet/>
-      </main>
+    <div className="flex min-h-screen flex-col">
+      <div className="container flex flex-1 flex-col">
+        <nav className="m-2 flex h-[100px] flex-col items-start rounded-lg border p-4">
+          <div>Nav</div>
+          <ul className="flex gap-2">
+            <li>
+              <Button asChild variant="ghost">
+                <Link to="/">Example Home</Link>
+              </Button>
+            </li>
+            <li>
+              <Button asChild variant="ghost">
+                <Link to="/debug-scorm">Debug SCORM</Link>
+              </Button>
+            </li>
+            <li>
+              <Button asChild variant="ghost">
+                <Link to="/components">Components</Link>
+              </Button>
+            </li>
+          </ul>
+        </nav>
+        <main className="m-2 flex-1 rounded-lg border p-4">
+          Main
+          <Outlet />
+        </main>
+      </div>
+      <div className="container">
+        <footer className="m-2 mt-auto rounded-lg border p-4">
+          Footer © {new Date().getFullYear()}
+        </footer>
+      </div>
     </div>
-    <div className="container">
-    <footer className='border rounded-lg  p-4 mt-auto m-2'>
-        Footer © {new Date().getFullYear()}
-    </footer>
-    </div>
-  </div>
-  )
+  );
 }

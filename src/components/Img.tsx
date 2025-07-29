@@ -1,4 +1,4 @@
-import type { ImgHTMLAttributes } from "react";
+import type { ImgHTMLAttributes } from 'react';
 
 interface ImgProps extends ImgHTMLAttributes<HTMLImageElement> {
   className: string;
@@ -9,7 +9,7 @@ export default function Img({ className, isCircle = false, ...props }: ImgProps)
   return (
     <>
       <img
-        className={`w-full object-cover object-center ${isCircle && "aspect-square rounded-full"} ${className}`}
+        className={`w-full object-cover object-center ${isCircle && 'aspect-square rounded-full'} ${className}`}
         alt="Formação Lego"
         loading="lazy"
         {...props}
