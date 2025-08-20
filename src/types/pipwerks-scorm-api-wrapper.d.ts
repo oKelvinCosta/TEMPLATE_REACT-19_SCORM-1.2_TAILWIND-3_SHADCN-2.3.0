@@ -43,7 +43,7 @@ declare module 'pipwerks-scorm-api-wrapper' {
 
   export const SCORM: SCORMAPI;
 
-  // Debug global do pipwerks (not confunds with SCORM.debug)
+  // Debug global from pipwerks (not confunds with SCORM.debug)
   interface PipwerksDebug {
     isActive: boolean;
     log: (...args: any[]) => void;
